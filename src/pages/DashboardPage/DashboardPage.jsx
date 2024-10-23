@@ -1,27 +1,24 @@
 import { useState, useEffect } from "react";
-import { Box, For, Table, Stack, Button } from '@chakra-ui/react';
-import { googleLogout, useGoogleLogin, GoogleLogin } from '@react-oauth/google';
-import { Link, useLocation, Navigate } from 'react-router-dom';
+import { Table, Stack } from '@chakra-ui/react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function DashboardPage() {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [documents, setDocuments] = useState([]);
-  const [tokenState, setTokenState] = useState('');
-  let { search } = useLocation();
+  const { search } = useLocation();
   const query = new URLSearchParams(search);
   const code = query.get('code');
   const API_URL = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const sendToken = async () => {
     try {
         const response = await axios.post(`${API_URL}/generate-access-token`, { 
             code
         });
-        setTokenState(response.data.tokens.access_token);
         localStorage.setItem('token', response.data.tokens.access_token)
-        setLoggedIn(true);
+        navigate('/dashboard');
     } catch(error) {
         console.error("Error sending token ", token)
     }
@@ -34,33 +31,25 @@ function DashboardPage() {
     setDocuments(response.data)
   }
 
-  const logOut = () => {
-      googleLogout();
-      localStorage.clear();
-      setLoggedIn(false)
-  };
-
   useEffect(() => {
-      if(code){
-        sendToken();
+    if(code){
+      sendToken();
     }
-    
   }, []);
 
   useEffect(() => {
+    if(!token && !code) {
+      navigate('/login');
+    }
     if(token){
       getDocuments();
-    } 
+    }
   }, [token]);
-
-  // if(!loggedIn){
-  //   return <Navigate to="/login"/>
-  // }
 
   return (
     <>
       <div>DashboardPage</div>
-      {/* <Button onClick={logOut}>Log out</Button> */}
+    
       <Stack gap="10">
         <Table.Root>
           <Table.Header>
