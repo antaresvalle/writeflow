@@ -1,20 +1,21 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Button } from '@chakra-ui/react'
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import DocumentPage from './pages/DocumentPage/DocumentPage';
 
 function App() {
+  const navigate = useNavigate();
 
   return (
-    <BrowserRouter>
+    <div>
       <Routes>
-        <Route path='/login' element={<LoginPage />}/>
+        <Route path='/' element={<DashboardPage/>}/>
         <Route path='/dashboard' element={<DashboardPage/>}/>
+        <Route path='/login' element={<LoginPage />}/> 
         <Route path='/document/:id' element={<DocumentPage/>}/>
       </Routes>
-    </BrowserRouter>
+    </div>
   )
 }
 
