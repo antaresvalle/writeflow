@@ -2,13 +2,14 @@ import { Box, Theme } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { GoogleLogin } from '@react-oauth/google';
-import  { Navigate } from 'react-router-dom'
+import  { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [credential, setCredential] = useState('')
   const API_URL = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const getToken = async (response) => {
     const data = await axios.post(`${API_URL}/verify-token`, {
@@ -27,9 +28,11 @@ function LoginPage() {
       console.log('Error', error)
   }
 
-  if(token){
-    return <Navigate to="/dashboard"/>
-  } 
+  useEffect(() => {
+    if(token){
+      navigate('/dashboard');
+    }
+  }, []);
 
   return (
     <Box>
