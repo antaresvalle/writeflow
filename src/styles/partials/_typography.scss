@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'AvenirNext LT Pro';
+    src: url('/src/assets/fonts/AvenirNextLTPro-Regular.eot'); /* IE9 Compat Modes */
+    src: url('/src/assets/fonts/AvenirNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/AvenirNextLTPro-Regular.otf') format('opentype'),
+        url('/src/assets/fonts/AvenirNextLTPro.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/src/assets/fonts/AvenirNextLTPro-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvenirNext LT Pro';
+    src: url('/src/assets/fonts/AvenirNextLTPro-Bold.eot'); /* IE9 Compat Modes */
+    src: url('/src/assets/fonts/AvenirNextLTPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/AvenirNextLTPro-Bold.otf') format('opentype'),
+        url('/src/assets/fonts/AvenirNextLTBold.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/src/assets/fonts/AvenirNextLTPro-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Bold.svg#AvenirNextLTPro-Bold') format('svg'); /* Legacy iOS */
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvenirNext LT Pro';
+    src: url('/src/assets/fonts/AvenirNextLTPro-Demi.eot'); /* IE9 Compat Modes */
+    src: url('/src/assets/fonts/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/AvenirNextLTPro-Demi.otf') format('opentype'),
+        url('/src/assets/fonts/AvenirNextLTDemi.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/src/assets/fonts/AvenirNextLTPro-Demi.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Demi.woff') format('woff'), /* Pretty Modern Browsers */
+        url('/src/assets/fonts/AvenirNextLTPro-Demi.svg#AvenirNextLTPro-Demi') format('svg'); /* Legacy iOS */
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

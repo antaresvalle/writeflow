@@ -1,0 +1,19 @@
+@use './variables' as *;
+
+@mixin reset-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+// MEDIA QUERIES
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      @content;
+    }
+}
