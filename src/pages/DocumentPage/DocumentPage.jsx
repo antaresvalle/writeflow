@@ -1,15 +1,19 @@
 import './DocumentPage.scss';
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function DocumentPage() {
   const { id } = useParams();
   const [wordCount, setWordCount] = useState(0);
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
-  const getDocument = async () => {
+  const getWordCount = async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/documents/${id}`);
+        const response = await axios.post(`http://localhost:3000/documents/${id}`, {
+          token: token
+        });
         setWordCount(response.data.wordCount)
     } catch(error){
       console.error('Error getting the word count', error)
@@ -17,7 +21,10 @@ function DocumentPage() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => getDocument(), 1000);
+    if(!token) {
+      navigate('/login');
+    }
+    const interval = setInterval(() => getWordCount(), 1000);
     return () => clearInterval(interval)
   }, []);
     
