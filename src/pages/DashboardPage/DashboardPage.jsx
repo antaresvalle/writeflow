@@ -69,10 +69,10 @@ function DashboardPage() {
           {
             documents.map((item) => {
               return(
-                <>
+                <div key={item.id} className="table__row-wrapper">
                   <div className="table__row">
                     <div className="table__cell-name">
-                      <Link key={item.id} to={`/document/${item.id}`} className="table__link">
+                      <Link to={`/document/${item.id}`} className="table__link">
                         {item.name}
                       </Link>
                     </div>
@@ -80,7 +80,7 @@ function DashboardPage() {
                       {new Date(item.modifiedByMeTime).toLocaleDateString()}
                     </div>
                   </div>
-                </>
+                </div>
               )
             })
           }
