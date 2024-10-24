@@ -25,10 +25,14 @@ function DashboardPage() {
   }
 
   const getDocuments = async () => {
-    const response = await axios.post('http://localhost:3000/documents', {
+    try {
+      const response = await axios.post('http://localhost:3000/documents', {
         token: token
-    })
-    setDocuments(response.data)
+      })
+      setDocuments(response.data)
+    } catch(error) {
+      console.error('Error getting documents', documents)
+    }
   }
 
   useEffect(() => {
