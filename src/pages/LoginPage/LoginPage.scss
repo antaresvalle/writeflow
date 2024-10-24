@@ -1,0 +1,51 @@
+@use "./../../styles/partials/global" as *;
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/functions" as *;
+
+.login {
+    padding: 1rem;
+
+    @include tablet {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__image {
+        width: toRem(140);
+        margin-bottom: 2rem;
+    }
+
+    &__intro-text, &__about-text, &__cta-text {
+        text-align: center;
+        width: 40%;
+        margin-bottom: 1rem;
+        font-size: toRem(16);
+        color: $write-flow-gray;
+        
+    }
+
+    &__wf-text {
+        font-weight: bold;
+    }
+
+    &__cta-text {
+        color: $write-flow-light-blue;
+    }
+
+    &__title {
+        color: $write-flow-blue;
+        margin-bottom: 1rem;
+    }
+
+    &__wrapper {
+        background-color: $white-color;
+        border-radius: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 3.5px 5.5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 30vh;
+    }
+}
