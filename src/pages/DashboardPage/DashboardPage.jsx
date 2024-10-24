@@ -1,5 +1,5 @@
+import './DashboardPage.scss';
 import { useState, useEffect } from "react";
-import { Table, Stack } from '@chakra-ui/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -47,30 +47,46 @@ function DashboardPage() {
   }, [token]);
 
   return (
-    <>
-      <div>DashboardPage</div>
-    
-      <Stack gap="10">
-        <Table.Root>
-          <Table.Header>
-            <Table.Row>
-              <Table.ColumnHeader>Document</Table.ColumnHeader>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {documents.map((item) => (
-              <Table.Row key={item.id}>
-                <Table.Cell>
-                  <Link key={item.id} to={`/document/${item.id}`}>
-                    {item.name}
-                  </Link>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table.Root>
-      </Stack>
-    </>
+    <main className="dashboard">
+      <h2 className='dashboard__title'>Dashboard</h2>
+      <article className="dashboard__section">
+        <h3 className="dashboard-subtitle">
+          Documents
+        </h3>
+        <div className="table">
+          <div className="table__header">
+            <div className="table__header-cell-name">
+              <h4 className='table__header-name'>
+                Name
+              </h4>
+            </div>
+            <div className="table__header-cell-modified">
+              <h4 className='table__header-modified'>
+                Last modified
+              </h4>
+            </div>
+          </div>
+          {
+            documents.map((item) => {
+              return(
+                <>
+                  <div className="table__row">
+                    <div className="table__cell-name">
+                      <Link key={item.id} to={`/document/${item.id}`} className="table__link">
+                        {item.name}
+                      </Link>
+                    </div>
+                    <div className="table__cell-modified">
+                      {new Date(item.modifiedByMeTime).toLocaleDateString()}
+                    </div>
+                  </div>
+                </>
+              )
+            })
+          }
+        </div>
+      </article>
+    </main>
   )
 }
 

@@ -1,0 +1,77 @@
+@use "./../../styles/partials/global" as *;
+@use "./../../styles/partials/typography" as *;
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/functions" as *;
+
+.dashboard {
+    padding: 1rem;
+
+    @include tablet {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__title {
+        color: $write-flow-blue;
+        margin-bottom: 1rem;
+    }
+
+    &__section {
+        background-color: $white-color;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 3.5px 5.5px;
+    }
+}
+
+.table {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__header {
+        font-weight: bold;
+    }
+
+    &__header-name, &__header-modified {
+        margin: toRem(8) 0;
+        color: $silver-color;
+        text-transform: uppercase;
+        font-size: toRem(12);
+    }
+
+    &__header, &__row {
+        display: flex;
+        border-bottom: 1px solid #e2e8f0;
+    }
+      
+    &__cell-name, &__header-cell-name {
+        display: flex;
+        flex: 3;
+        min-width: 0;
+        align-items: center;
+        padding: toRem(14) toRem(8);
+    }
+
+    &__cell-name {
+        font-weight: bold;
+        padding-right: toRem(14);
+    }
+    
+    &__cell-modified, &__header-cell-modified {
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
+
+    &__cell-modified {
+        color: $write-flow-gray;
+    }
+
+    &__link {
+        color: $write-flow-light-blue;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }
