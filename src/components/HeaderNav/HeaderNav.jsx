@@ -1,6 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { Button } from '@chakra-ui/react';
+import './HeaderNav.scss';
+import { Link, useNavigate } from "react-router-dom";
 import { googleLogout } from '@react-oauth/google';
+import writeFlowLogo from '../../assets/writeflow-logo.svg';
 
 function HeaderNav() {
     const navigate = useNavigate();
@@ -13,17 +14,15 @@ function HeaderNav() {
     };
 
   return (
-    <header>
-        <div >
-            <NavLink to="/">
-                <h1>WriteFlow</h1>
-            </NavLink>
-            <nav >
-             { session && 
-                (<Button onClick={logOut}>Log out</Button>)
-             }
-            </nav>
-        </div>
+    <header className="header">
+        <nav className="nav-bar">
+            <Link to="/" className="nav-bar__logo">
+                <img src={writeFlowLogo} alt="WriteFlow" className="nav-bar__logo-img" />
+            </Link>
+            { session && 
+                ( <button className='nav-bar__btn' onClick={logOut}>Log out</button> )
+            }
+        </nav>
     </header>
   )
 }

@@ -1,0 +1,32 @@
+@use "./../../styles/partials/global" as *;
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/functions" as *;
+
+.nav-bar {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+
+    @include tablet {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__logo {
+        width: toRem(189);
+    }
+
+    &__btn {
+        background-color: $write-flow-blue;
+        color: $white-color;
+        border: none;
+        padding: 0 1rem;
+        border-radius: toRem(10);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
