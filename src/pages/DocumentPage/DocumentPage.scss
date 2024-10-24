@@ -1,0 +1,32 @@
+@use "./../../styles/partials/global" as *;
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/functions" as *;
+
+.document {
+    padding: 1rem;
+
+    @include tablet {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    &__iframe {
+        width: 100%;
+        height: 70vh;
+        border-width: 0;
+    }
+
+    &__word-count {
+        color: $write-flow-blue;
+       &--count {
+        font-weight: bold;
+       }
+    }
+}

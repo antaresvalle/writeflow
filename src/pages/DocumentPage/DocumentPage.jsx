@@ -1,3 +1,4 @@
+import './DocumentPage.scss';
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
@@ -19,12 +20,15 @@ function DocumentPage() {
     }, [])
     
   return (
-    <>
-        <Link to={'/dashboard'}>Go Back</Link>
-        <div>DocumentPage</div>
-        <p>Word count: {wordCount}</p>
-        <iframe src={`https://docs.google.com/document/d/${id}/edit?tab=t.0`} width={1000} height={500} ></iframe>
-    </>
+    <main className="document">
+      <div className="document__header">
+        <Link className="document__link" to={'/dashboard'}>Go Back</Link>
+        <p className="document__word-count">
+          Word count: <span className="document__word-count--count">{wordCount}</span>
+        </p>
+      </div>
+        <iframe className="document__iframe" src={`https://docs.google.com/document/d/${id}/edit?tab=t.0`}></iframe>
+    </main>
   )
 }
 
