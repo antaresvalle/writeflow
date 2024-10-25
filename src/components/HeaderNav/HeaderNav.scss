@@ -7,8 +7,11 @@
     display: flex;
     padding: 1rem;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 
     @include tablet {
+        flex-direction: row;
         padding-left: 5rem;
         padding-right: 5rem;
     }
@@ -20,6 +23,7 @@
     &__btn {
         background-color: $write-flow-blue;
         color: $white-color;
+        height: toRem(30);
         border: none;
         padding: 0 1rem;
         border-radius: toRem(10);
@@ -28,5 +32,29 @@
         &:hover {
             opacity: 0.7;
         }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__user-name {
+        margin-right: 1rem;
+        font-size: small;
+
+        @include tablet {
+            font-size:100%;
+        }
+    }
+
+    &__avatar {
+        background-size: cover;
+        border-radius: 50%;
+        height: toRem(36);
+        width: toRem(36);
+        min-width: toRem(36);
+        object-fit: cover;
+        object-position: left;
     }
 }

@@ -6,7 +6,6 @@ import  { useNavigate } from 'react-router-dom';
 import wfIcon from '../../assets/wf-icon.svg';
 
 function LoginPage() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [credential, setCredential] = useState('')
   const API_URL = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
@@ -16,6 +15,7 @@ function LoginPage() {
     const data = await axios.post(`${API_URL}/verify-token`, {
         response
     });
+    localStorage.setItem('userInfo', JSON.stringify(data.data.userInfo))
     window.location = data.data.authUrl;
   }
 
@@ -26,7 +26,7 @@ function LoginPage() {
   };
 
   const errorMessage = (error) => {
-      console.log('Error', error)
+      console.error('Error', error)
   }
 
   useEffect(() => {
