@@ -17,13 +17,10 @@ With **WriteFlow** I'm looking to create a tool that is free, simple, and can ge
 
 - Writers, authors, journalists, and content creators who use Google Docs for their writing and need a simple way to track progress.
 
-### Features
+### MVP Features
 
 - **Google Docs Integration:** Secure, easy to set up and use.
 - **Word Count:** Word count for a specific document to monitor daily/weekly output.
-- **Goal Setting:** Users can set daily or weekly word count goals and track their progress.
-- **Analytics and Progress Visualization:** Visual representation of progress to track word count over time.
-- **Reminders:** Browser notifications to help users stay on track.
 
 ## Implementation
 
@@ -31,8 +28,6 @@ With **WriteFlow** I'm looking to create a tool that is free, simple, and can ge
 
 - **Frontend:**
   - React.js
-  - Chakra UI
-  - Chart.js
 - **Backend:**
   - Node.js with Express for handling server-side logic and API requests.
 - **APIs:**
@@ -43,3 +38,19 @@ With **WriteFlow** I'm looking to create a tool that is free, simple, and can ge
 
 - **Google Drive API:** Fetches list of Google Docs and their metadata.
 - **Google Docs API:** Retrieves the content of Google Docs, used to calculate word count.
+
+### Sitemap
+
+- Login
+  ![](./src/assets/app-images/write-flow-login.png)
+- Dashboard
+  ![](./src/assets/app-images/write-flow-dashboard.png)
+
+- Document details
+  ![](./src/assets/app-images/write-flow-document.png)
+
+## Future Implementations
+
+- **Goal Setting:** Users can set daily or weekly word count goals and track their progress.
+- **Analytics and Progress Visualization:** Visual representation of progress to track word count over time.
+- **Reminders:** Browser notifications to help users stay on track.
