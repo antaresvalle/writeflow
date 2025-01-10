@@ -1,6 +1,4 @@
-# Project Title
-
-WriteFlow
+# WriteFlow
 
 ## Overview
 
